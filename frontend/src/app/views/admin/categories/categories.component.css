@@ -1,0 +1,14 @@
+.pagination-spreads::ng-deep li {
+    background-color: #1400A9;
+    border-radius: 5px;
+}
+  
+.pagination-spreads::ng-deep ul > li.disabled {
+    display: none !important;
+}
+
+.pagination-spreads::ng-deep ul > li:not(.active) > a {
+    background-color: #F1F1F1;
+    border-color: black !important;
+    color: black;
+}

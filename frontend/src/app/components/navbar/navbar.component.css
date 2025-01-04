@@ -1,0 +1,17 @@
+.title{
+    white-space: pre;
+}
+
+img{
+    width: auto;
+    height: 55px;
+}
+
+a{
+    color:black;
+}
+
+a:hover{
+    color:#1400A9 ;
+}
+

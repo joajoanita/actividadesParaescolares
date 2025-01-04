@@ -1,0 +1,69 @@
+
+
+
+<section class="container">
+  <div class="text-end">
+    <button type="button" class="button-color-primary shadow mt-5 px-4 pt-2" routerLink="/createActivity">Crear actividad</button>
+  </div>
+  <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+    {{successMessage}}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+    {{errorMessage}}
+  </div>
+  <div *ngIf="warningMessage" class="alert alert-warning mt-3" role="alert">
+      {{ warningMessage }}
+  </div>
+  <div class="table-responsive">
+      <table class="table mt-4 table-striped table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Horario</th>
+              <th scope="col">Cuota</th>
+              <th scope="col">Etapa educativa</th>
+              <th scope="col">Matriculados</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let activity of activities | paginate: {itemsPerPage: 6, currentPage: actualPage}">
+              <th scope="row">{{activity.id}}</th>
+              <td>{{activity.titulo}}</td>
+              <td>{{activity.descripcion}}</td>
+              <td>{{activity.horario}}</td>
+              <td>{{activity.cuota}}</td>
+              <td>{{activity.etapaEducativa}}</td>
+              <td>{{activity.acceptedCount}}/15</td>
+              <button type="button" class="button-color-secondary my-2 p-2 mx-2" data-bs-toggle="modal" [attr.data-bs-target]="'#activityModal' + activity.id">Eliminar</button>
+   
+          
+              <!-- Modal único para cada actividad -->
+              <div class="modal fade" [id]="'activityModal' + activity.id" tabindex="-1" role="dialog" aria-labelledby="activityModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="activityModalLabel">¡Cuidado, vas a eliminar una actividad!</h5>
+                    </div>
+                    <div class="modal-body">
+                      ¿Estás seguro de que quieres eliminar {{activity.titulo}}?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="button-color-secondary p-2" data-bs-dismiss="modal">Cerrar</button>
+                      <button (click)="deleteActivity(activity.id)" type="button" class="button-color-primary p-2">Eliminar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tr>
+          </tbody>
+          
+        </table>
+  </div>
+
+ 
+  
+  <pagination-controls (pageChange)="actualPage = $event"  class="pagination-spreads pagination "></pagination-controls>
+</section>
