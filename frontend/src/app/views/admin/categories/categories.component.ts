@@ -14,10 +14,12 @@ import { FormsModule } from '@angular/forms';
 export class CategoriesComponent {
   categories: any[] = [];
   actualPage: number = 1;
+
   
   constructor(private service: AdminService){}
 
   ngOnInit(){
+
     this.indexCategories();
   }
 
@@ -44,4 +46,6 @@ export class CategoriesComponent {
       }
     );
   }
+
+
 }

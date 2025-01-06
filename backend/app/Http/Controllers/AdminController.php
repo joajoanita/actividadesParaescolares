@@ -184,7 +184,7 @@ class AdminController extends Controller
         $category = Categoria::find($id);
 
         if(!$category){
-            return response(['error' => 'No se ha encontrado la categoria'], 500);
+            return response(['error' => 'No se ha encontrado la categoria'], 404);
         }
 
         $category->nombre = $request->nombre;

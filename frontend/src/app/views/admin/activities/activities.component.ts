@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { ActivityService } from '../../../service/Activities/activity-service.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { AdminService } from '../../../service/Admin/admin.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Activity } from '../../../models/activity';
 
 
 @Component({
   selector: 'app-activities',
-  imports: [RouterModule, FormsModule, CommonModule, NgxPaginationModule],
+  imports: [RouterModule, FormsModule, CommonModule, NgxPaginationModule, RouterLink],
   templateUrl: './activities.component.html',
   styleUrl: './activities.component.css'
 })
@@ -20,6 +21,7 @@ export class ActivitiesComponent {
   errorMessage: any = null;
   warningMessage: any = null;
   successMessage: any = null;
+  activity = new Activity;
 
   constructor(
     private activityService : ActivityService,

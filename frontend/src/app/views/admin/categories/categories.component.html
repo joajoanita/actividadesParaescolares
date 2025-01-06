@@ -19,7 +19,12 @@
               <th scope="row">{{category.id}}</th>
               <td>{{category.nombre}}</td>
               <td>{{category.descripcion}}</td>
-              <button class="button-color-secondary my-2 p-2 mx-3" (click)="deleteCategory(category.id)">Eliminar</button>
+              <td class="text-center">
+                <div class="justify-content-center align-items-center">
+                  <button type="button" class="button-color-primary my-2 p-2 mx-2 px-3" [routerLink]="['/editCategory', category.id]">Editar</button>
+                  <button class="button-color-secondary my-2 p-2 mx-3" (click)="deleteCategory(category.id)">Eliminar</button>
+                </div>
+              </td>
             </tr>
         </table>
   </div>

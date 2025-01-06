@@ -13,6 +13,8 @@ import { StudentsComponent } from './views/admin/students/students.component';
 import { MatriculationsComponent } from './views/admin/matriculations/matriculations.component';
 import { CreateActivityComponent } from './components/create-activity/create-activity.component';
 import { CreateCategoryComponent } from './components/create-category/create-category.component';
+import { EditActivityComponent } from './components/edit-activity/edit-activity.component';
+import { EditCategoryComponent } from './components/edit-category/edit-category.component';
 
 
 export const routes: Routes = [
@@ -30,4 +32,6 @@ export const routes: Routes = [
     { path: 'matriculations', component: MatriculationsComponent, canActivate: [adminGuard]},
     { path: 'createActivity', component: CreateActivityComponent, canActivate: [adminGuard]},
     { path: 'createCategory', component: CreateCategoryComponent, canActivate: [adminGuard]},
+    { path: 'editActivity/:id', component: EditActivityComponent},
+    { path: 'editCategory/:id', component: EditCategoryComponent},
 ];

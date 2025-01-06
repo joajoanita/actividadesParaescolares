@@ -25,7 +25,9 @@
         <td>{{student.apellidoAdultoResponsable}}</td>
         <td>{{student.telefonoAdultoResponsable}}</td>
         <td>{{student.emailAdultoResponsable}}</td>
-        <button class="button-color-secondary mx-2 my-2 p-2" (click)="deleteStudent(student.id)">Eliminar</button>
+        <td>
+          <button class="button-color-secondary mx-2 my-2 p-2" (click)="deleteStudent(student.id)">Eliminar</button>
+        </td>
       </tr>
     </table>
     <pagination-controls (pageChange)="actualPage = $event"  class="pagination-spreads pagination "></pagination-controls>

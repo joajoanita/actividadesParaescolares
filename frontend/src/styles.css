@@ -33,11 +33,11 @@ body{
 }
 
 .button-color-primary{
-    background-color: var(--button-color);
-    color: white;
+    background-color: var(--button-color) !important;
+    color: white !important; 
     padding: 3px 3px;
     border-radius: 10px;
-    border: 2px solid var(--button-color);
+    border: 3px solid var(--button-color) !important;
 }
 
 .button-color-primary:hover{

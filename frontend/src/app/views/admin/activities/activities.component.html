@@ -37,8 +37,13 @@
               <td>{{activity.cuota}}</td>
               <td>{{activity.etapaEducativa}}</td>
               <td>{{activity.acceptedCount}}/15</td>
-              <button type="button" class="button-color-secondary my-2 p-2 mx-2" data-bs-toggle="modal" [attr.data-bs-target]="'#activityModal' + activity.id">Eliminar</button>
-   
+              <td class="text-center">
+                <div class="justify-content-center align-items-center">
+                  <button type="button" class="button-color-primary my-2 p-2 mx-2 px-3" [routerLink]="['/editActivity', activity.id]">Editar</button>
+                  <button type="button" class="button-color-secondary my-2 p-2 mx-2" data-bs-toggle="modal" [attr.data-bs-target]="'#activityModal' + activity.id">Eliminar</button>
+                </div>
+              </td>
+              
           
               <!-- Modal único para cada actividad -->
               <div class="modal fade" [id]="'activityModal' + activity.id" tabindex="-1" role="dialog" aria-labelledby="activityModalLabel" aria-hidden="true">
@@ -62,8 +67,6 @@
           
         </table>
   </div>
-
- 
   
   <pagination-controls (pageChange)="actualPage = $event"  class="pagination-spreads pagination "></pagination-controls>
 </section>

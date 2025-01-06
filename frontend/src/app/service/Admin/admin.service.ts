@@ -44,7 +44,7 @@ export class AdminService {
   }
 
   // 3. Modificamos las actividades
-  updateAtivity(id:any, data: any): Observable<any>{
+  updateActivity(id:any, data: any): Observable<any>{
     return this.http.put(`http://127.0.0.1:8000/api/admin/updateActivity/${id}`, data);
   }
 
