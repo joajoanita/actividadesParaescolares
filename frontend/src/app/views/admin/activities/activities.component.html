@@ -39,13 +39,14 @@
               <td>{{activity.acceptedCount}}/15</td>
               <td class="text-center">
                 <div class="justify-content-center align-items-center">
-                  <button type="button" class="button-color-primary my-2 p-2 mx-2 px-3" [routerLink]="['/editActivity', activity.id]">Editar</button>
-                  <button type="button" class="button-color-secondary my-2 p-2 mx-2" data-bs-toggle="modal" [attr.data-bs-target]="'#activityModal' + activity.id" >Eliminar</button>
+                  <button type="button" class="button-color-secondary my-2 p-2 mx-2 px-3" [routerLink]="['/editActivity', activity.id]">Editar</button>
+                  <button type="button" class="button-color-primary my-2 p-2 mx-2" data-bs-toggle="modal" [attr.data-bs-target]="'#activityModal' + activity.id" >Eliminar</button>
                 </div>
               </td>
 
             </tr>
           </tbody>
+         
           <div *ngFor="let activity of activities" class="modal fade" [id]="'activityModal' + activity.id" tabindex="-1" role="dialog" aria-labelledby="activityModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -57,7 +58,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="button-color-secondary p-2" data-bs-dismiss="modal">Cerrar</button>
-                  <button (click)="deleteActivity(activity.id)" type="button" class="button-color-primary p-2">Eliminar</button>
+                  <button (click)="deleteActivity(activity.id)" type="button" class="button-color-primary p-2 " data-bs-dismiss="modal">Eliminar</button>
                 </div>
               </div>
             </div>
