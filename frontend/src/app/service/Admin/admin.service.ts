@@ -64,7 +64,7 @@ export class AdminService {
   }
 
   // 7. Modificar categorías
-  updateCategory(data: any, id: any): Observable<any>{
+  updateCategory(id: any, data: any): Observable<any>{
     return this.http.put(`http://127.0.0.1:8000/api/admin/updateCategory/${id}`, data)
   }
 
