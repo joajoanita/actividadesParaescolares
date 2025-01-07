@@ -45,6 +45,8 @@ export class ActivitiesComponent {
     );
   }
 
+
+  
   deleteActivity(id: number){
     console.log(`Intentando eliminar la actividad con ID: ${id}`);
     this.service.deleteActivity(id).subscribe(
