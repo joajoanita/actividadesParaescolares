@@ -5,6 +5,8 @@
 
 .imagen-size{
     width: 85%;
+    height: 100%;
+    object-fit: cover;
 }
 
 

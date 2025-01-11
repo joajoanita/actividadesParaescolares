@@ -34,6 +34,18 @@ class AdminController extends Controller
     */
 
     // 1. Indexamos todas las matriculaciones
+
+    public function indexActivities(){
+        $activities = Actividad::all();
+        //Cogemos cada actividad y le establecemos a $activity la función que recoge a los alumnos con el estado en "Aceptada" y lo cuenta.
+        $activities->each(function ($activity) {
+            $activity->acceptedCount = $activity->alumnos()->wherePivot('estado', 'Aceptada')->count();
+        });
+        
+        return response()->json($activities, 200);
+
+    }
+
     public function indexStudents(Request $request){
         $matriculation = Alumno::searchStudent($request->buscar);
         return response()->json($matriculation, 200);

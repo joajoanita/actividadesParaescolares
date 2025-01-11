@@ -23,4 +23,8 @@ export class ActivityService {
   matriculateActivity(data: any): Observable<any>{
     return this.http.post('http://127.0.0.1:8000/api/user/matriculateActivity', data);
   }
+
+  showActivitiesCategory(categoryName= ''): Observable<any>{
+    return this.http.get('http://127.0.0.1:8000/api/user/showActivitiesCategory', {params: {buscar:categoryName}});
+  }
 }

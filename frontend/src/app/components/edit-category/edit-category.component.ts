@@ -19,6 +19,7 @@ export class EditCategoryComponent {
   warningMessage: any = null;
   successMessage: any = null;
 
+
   constructor(private categoryService: AdminService, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void {

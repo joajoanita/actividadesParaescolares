@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Actividad;
 use App\Models\Alumno;
+use App\Models\Categoria;
 use Carbon\Carbon;
 use Validator;
 
@@ -21,11 +22,6 @@ class ActivityController extends Controller
     // 1. Indexar TODAS las actividades existentes
     public function indexActivities(Request $request){
         $activities = Actividad::search($request->buscar);
-        //Cogemos cada actividad y le establecemos a $activity la función que recoge a los alumnos con el estado en "Aceptada" y lo cuenta.
-        $activities->each(function ($activity) {
-            $activity->acceptedCount = $activity->alumnos()->wherePivot('estado', 'Aceptada')->count();
-        });
-
         return response()->json($activities, 200);
     }
 
@@ -88,6 +84,28 @@ class ActivityController extends Controller
                 return response()->json(['message' => 'Actividad no encontrada'], 404);
             }
         }
+    }
+
+    public function showActivitiesCategory(Request $request){
+        
+        $request->validate([
+            'buscar' => 'required|string'
+        ]);
+
+        $category = Categoria::where('nombre', $request->buscar)->first();
+        
+        if (!$category) {
+            return response()->json([
+                'message' => 'Categoría no encontrada.'
+            ], 404);
+        }
+
+        $activities = $category->actividades;
+
+        return response()->json([
+            'category' => $category->nombre,
+            'activities' => $activities
+        ], 200);
     }
 }
 

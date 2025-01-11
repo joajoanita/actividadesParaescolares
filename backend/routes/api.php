@@ -33,6 +33,7 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'admin'
 ], function ($router) {
+    Route::get('/indexActivities',                  [AdminController::class, 'indexActivities']);
     Route::get('/index',                            [AdminController::class, 'indexStudents']);
     Route::get('/indexMatriculations',              [AdminController::class, 'indexMatriculations']);
     Route::put('/index/{idActivity}/{idStudent}',   [AdminController::class, 'stateActivity']);
@@ -50,7 +51,9 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'user'
 ], function ($router) {
-    Route::get('/indexActivities',                        [ActivityController::class, 'indexActivities']);
-    Route::get('/activityDetail/{id}',           [ActivityController::class, 'activityDetail']);
-    Route::post('/matriculateActivity',         [ActivityController::class, 'matriculateActivity']);
+    Route::get('/indexActivities',                      [ActivityController::class, 'indexActivities']);
+    Route::get('/activityDetail/{id}',                  [ActivityController::class, 'activityDetail']);
+    Route::post('/matriculateActivity',                 [ActivityController::class, 'matriculateActivity']);
+    Route::get('/showActivitiesCategory',               [ActivityController::class, 'showActivitiesCategory']);
+
 });

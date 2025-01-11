@@ -15,3 +15,12 @@ a:hover{
     color:#1400A9 ;
 }
 
+@media (max-width: 480px){
+    .imagen-size{
+        width: 20% !important;
+        height: 30% !important;
+    }
+    
+   
+
+}

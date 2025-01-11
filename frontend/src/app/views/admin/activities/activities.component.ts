@@ -24,7 +24,6 @@ export class ActivitiesComponent {
   activity = new Activity;
 
   constructor(
-    private activityService : ActivityService,
     private service: AdminService,
   ){}
   ngOnInit(){
@@ -32,11 +31,9 @@ export class ActivitiesComponent {
   }
 
   indexActivities(){
-    this.activityService.indexActivities().subscribe(
+    this.service.indexActivities().subscribe(
       data => {
         this.activities = data.reverse();
-        this.indexActivities();
-        
       },
       error => {
         console.error('No se ha podido indexar las actividades', error)
@@ -45,6 +42,8 @@ export class ActivitiesComponent {
     );
   }
 
+
+  
   deleteActivity(id: number){
     console.log(`Intentando eliminar la actividad con ID: ${id}`);
     this.service.deleteActivity(id).subscribe(

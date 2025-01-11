@@ -20,6 +20,7 @@ export class CreateActivityComponent {
   errorMessage: any = null; 
   successMessage: any = null;
   warningMessage: any = null;
+
   
   constructor(
     private activityService: AdminService, 

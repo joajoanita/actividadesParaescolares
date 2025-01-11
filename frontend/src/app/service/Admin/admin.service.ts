@@ -64,7 +64,7 @@ export class AdminService {
   }
 
   // 7. Modificar categorías
-  updateCategory(data: any, id: any): Observable<any>{
+  updateCategory(id: any, data: any): Observable<any>{
     return this.http.put(`http://127.0.0.1:8000/api/admin/updateCategory/${id}`, data)
   }
 
@@ -84,5 +84,13 @@ export class AdminService {
 
   deleteStudents(id: number): Observable<any>{
     return this.http.delete(`http://127.0.0.1:8000/api/admin/deleteStudents/${id}`)
+  }
+
+  getActivityByCategory(categorias: string[]){
+    return this.http.get('http://127.0.0.1:8000/api/admin/index', {params: {categorias: categorias.join(',')}});
+  }
+
+  indexActivities(): Observable<any>{
+    return this.http.get('http://127.0.0.1:8000/api/admin/indexActivities');
   }
 }

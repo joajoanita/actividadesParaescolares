@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProvider';
 
 @Component({
   selector: 'app-activity-details',
@@ -46,6 +47,7 @@ export class ActivityDetailsComponent {
           this.matriculateForm.patchValue({
             actividades: [this.id]  
           });
+          console.log(data.categorias);
         },
         error => {
           console.error('Error al cargar los detalles de la actividad', error);

@@ -23,4 +23,12 @@ class Categoria extends Model
     public function usuarios(){
         return $this->belongsTo(User::class, 'id_user');
     }
+
+    public static function searchCategory($query= ''){
+        if(!$query){
+            return self::all();
+        }
+    
+        return self::where('nombre', 'like', "%$query%")->get();
+    }
 }
